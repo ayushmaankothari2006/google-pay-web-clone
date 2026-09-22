@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Pay — Simple, secure payments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%234285F4' d='M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z'/><path fill='%2334A853' d='M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z'/><path fill='%23FBBC05' d='M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z'/><path fill='%23EA4335' d='M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z'/></svg>">
+</head>
+
+<body>
+
+  <div class="app-wrapper">
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <!-- GPay Brand -->
+        <div class="brand-section">
+          <div class="brand-logo-row">
+            <svg class="brand-logo-svg" viewBox="0 0 24 24">
+              <path fill="#4285F4"
+                d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" />
+              <path fill="#34A853"
+                d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z" />
+              <path fill="#FBBC05"
+                d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z" />
+              <path fill="#EA4335"
+                d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+            </svg>
+            <span class="brand-title">GPay</span>
+          </div>
+          <div class="brand-tagline">Simple. Secure. For you.</div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu" id="sidebarNav">
+          <li class="nav-item active" data-nav="home">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            </span>
+            <span>Home</span>
+          </li>
+          <li class="nav-item" data-nav="payments">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <line x1="2" y1="10" x2="22" y2="10" />
+                <circle cx="7" cy="15" r="1.5" fill="currentColor" />
+              </svg>
+            </span>
+            <span>Payments</span>
+          </li>
+          <li class="nav-item" data-nav="people">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            <span>People</span>
+          </li>
+          <li class="nav-item" data-nav="bills">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </span>
+            <span>Bills &amp; recharges</span>
+          </li>
+          <li class="nav-item" data-nav="businesses">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </span>
+            <span>Businesses</span>
+          </li>
+          <li class="nav-item" data-nav="offers">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="6 3 18 3 22 9 12 22 2 9 6 3" />
+              </svg>
+            </span>
+            <span>Offers &amp; rewards</span>
+          </li>
+          <li class="nav-item" data-nav="money">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <line x1="6" y1="8" x2="6" y2="8" />
+                <line x1="10" y1="8" x2="18" y2="8" />
+                <line x1="6" y1="12" x2="18" y2="12" />
+                <line x1="6" y1="16" x2="14" y2="16" />
+              </svg>
+            </span>
+            <span>Money</span>
+          </li>
+          <li class="nav-item" data-nav="settings">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+              </svg>
+            </span>
+            <span>Settings</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bottom Invite Card & Country -->
+      <div class="sidebar-bottom">
+        <div class="invite-card">
+          <div class="invite-info">
+            <div class="invite-title">Invite friends,<br>earn rewards</div>
+            <div class="invite-subtitle">Get up to ₹201<br>for each friend</div>
+            <a href="#invite" class="invite-btn">
+              Invite now
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+          <!-- Cute SVG Illustration for Invite -->
+          <div class="invite-illustration">
+            <svg viewBox="0 0 80 80" width="100%" height="100%">
+              <!-- Green bush / background element -->
+              <ellipse cx="60" cy="55" rx="18" ry="16" fill="#137333" />
+              <ellipse cx="68" cy="62" rx="14" ry="12" fill="#0d652d" />
+              <!-- Person in blue shirt -->
+              <circle cx="42" cy="38" r="7" fill="#fbc02d" /> <!-- Head -->
+              <path d="M38 32 Q42 27 46 32 Z" fill="#1f1f1f" /> <!-- Hair -->
+              <path d="M35 45 C35 43 38 41 42 41 C46 41 49 43 49 45 L48 60 L36 60 Z" fill="#1a73e8" /> <!-- Torso -->
+              <path d="M42 45 L48 54" stroke="#1a73e8" stroke-width="3" stroke-linecap="round" /> <!-- Arm -->
+              <!-- Gold Coin with Rupee -->
+              <circle cx="56" cy="32" r="11" fill="#fbbc04" />
+              <circle cx="56" cy="32" r="9" fill="#f9ab00" />
+              <text x="56" y="36" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle"
+                font-family="Inter, sans-serif">₹</text>
+              <!-- Confetti sparkles -->
+              <circle cx="28" cy="32" r="2" fill="#ea4335" />
+              <rect x="30" y="24" width="3" height="3" fill="#4285f4" transform="rotate(45 31 25)" />
+              <circle cx="68" cy="22" r="1.5" fill="#34a853" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="country-selector">
+          <div class="flag-icon">
+            <div class="flag-orange"></div>
+            <div class="flag-white">
+              <div class="flag-chakra"></div>
+            </div>
+            <div class="flag-green"></div>
+          </div>
+          <span class="country-name">India</span>
+          <svg class="chevron-down-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+    <main class="main-content-wrapper">
+
+      <!-- Top Sticky Header -->
+      <header class="top-header">
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-input"
+              placeholder="Pay by name, phone number, UPI ID or search businesses...">
+          </div>
+        </div>
+
+        <div class="header-right-actions">
+          <button class="header-btn" title="Help">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>Help</span>
+          </button>
+
+          <button class="icon-btn-round" title="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notification-badge">1</span>
+          </button>
+
+          <div class="user-profile-pill" title="Account profile">
+            <img class="user-avatar"
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+              alt="Ayushmaan">
+            <span class="user-name">Ayushmaan</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- Promotional Hero Banner -->
+      <section class="hero-banner" id="heroBanner">
+        <div class="hero-banner-content">
+          <h1 class="hero-title">Low interest rate &amp; low EMIs</h1>
+          <p class="hero-subtitle">Get a loan up to ₹40 lakh</p>
+          <a href="#apply" class="apply-btn">
+            Apply now
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <div class="carousel-indicators">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+          </div>
+        </div>
+
+        <div class="hero-banner-graphic">
+          <!-- Rich SVG Illustration matching reference image -->
+          <svg class="banner-illustration-svg" viewBox="0 0 460 145" fill="none">
+            <!-- Lush green plant on left -->
+            <path d="M48 135 C38 95 20 80 8 75 C20 90 28 115 36 135 Z" fill="#0f9d58" />
+            <path d="M52 135 C58 85 75 68 88 60 C76 80 70 108 60 135 Z" fill="#34a853" />
+            <ellipse cx="50" cy="138" rx="16" ry="4" fill="#0b8043" />
+
+            <!-- Person sitting cross-legged holding smartphone -->
+            <g transform="translate(68, 22)">
+              <!-- Torso / blue polo shirt -->
+              <path d="M38 52 C38 46 44 42 54 42 C64 42 70 46 70 52 L72 82 L36 82 Z" fill="#1a73e8" />
+              <!-- White collar detail -->
+              <path d="M50 42 L54 49 L58 42 Z" fill="#ffffff" />
+              <!-- Head -->
+              <circle cx="54" cy="30" r="11" fill="#fbc02d" />
+              <!-- Black Hair with side parting -->
+              <path d="M44 28 C44 18 52 16 62 20 C66 23 66 30 63 32 C58 28 50 26 44 28 Z" fill="#202124" />
+              <!-- Face smile and eye -->
+              <circle cx="59" cy="30" r="1.2" fill="#202124" />
+              <path d="M57 34 Q60 37 62 34" stroke="#202124" stroke-width="1" stroke-linecap="round" fill="none" />
+              <!-- Arms holding phone -->
+              <path d="M38 54 Q48 64 57 66" stroke="#1a73e8" stroke-width="7" stroke-linecap="round" fill="none" />
+              <path d="M70 54 Q64 64 59 66" stroke="#1a73e8" stroke-width="7" stroke-linecap="round" fill="none" />
+              <!-- Hands -->
+              <circle cx="58" cy="66" r="3.5" fill="#fbc02d" />
+              <!-- Dark trousers cross-legged -->
+              <path d="M26 82 C26 82 46 90 66 90 C76 90 92 82 92 82 L86 102 L20 102 Z" fill="#202124" />
+              <ellipse cx="26" cy="100" rx="13" ry="6" fill="#202124" />
+              <ellipse cx="86" cy="100" rx="13" ry="6" fill="#202124" />
+            </g>
+
+            <!-- Smartphone mockup in center -->
+            <g transform="translate(195, 12)">
+              <!-- Shadow -->
+              <rect x="2" y="4" width="86" height="128" rx="16" fill="rgba(0,0,0,0.04)" />
+              <!-- Outer Phone frame -->
+              <rect x="0" y="0" width="86" height="128" rx="16" fill="#ffffff" stroke="#1a73e8" stroke-width="2.5" />
+              <!-- Top speaker and camera -->
+              <line x1="33" y1="7" x2="53" y2="7" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" />
+              <!-- Inner Screen area -->
+              <rect x="6" y="16" width="74" height="104" rx="10" fill="#f8fafd" />
+              <!-- Bank icon circle inside phone -->
+              <circle cx="43" cy="46" r="17" fill="#f0f6ff" stroke="#d3e3fd" stroke-width="1.5" />
+              <g transform="translate(34, 37)">
+                <path d="M9 1 L1 6 L17 6 Z" fill="#1a73e8" />
+                <rect x="3" y="7" width="2.2" height="7" fill="#1a73e8" />
+                <rect x="8" y="7" width="2.2" height="7" fill="#1a73e8" />
+                <rect x="13" y="7" width="2.2" height="7" fill="#1a73e8" />
+                <rect x="1" y="14" width="16" height="2" fill="#1a73e8" />
+              </g>
+              <!-- "Loans made simple" text -->
+              <text x="43" y="76" font-size="8.5" font-weight="700" fill="#1f1f1f" text-anchor="middle"
+                font-family="Inter, sans-serif">Loans</text>
+              <text x="43" y="87" font-size="7.5" font-weight="400" fill="#5f6368" text-anchor="middle"
+                font-family="Inter, sans-serif">made simple</text>
+            </g>
+
+            <!-- Gold Coins Stack & Rupee near phone -->
+            <g transform="translate(286, 62)">
+              <!-- Plant frond behind coin -->
+              <path d="M8 50 C12 25 28 10 40 5 C30 25 24 45 20 60 Z" fill="#34a853" />
+              <!-- Rupee coin floating -->
+              <circle cx="16" cy="18" r="11" fill="#fbbc04" stroke="#f9ab00" stroke-width="1.8" />
+              <circle cx="16" cy="18" r="8.5" fill="#f9ab00" />
+              <text x="16" y="22.5" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"
+                font-family="Inter, sans-serif">₹</text>
+              <!-- Potted plant base -->
+              <ellipse cx="24" cy="64" rx="14" ry="4" fill="#0f9d58" />
+            </g>
+
+            <!-- Lush green plant fronds -->
+            <path d="M320 125 C310 90 325 65 340 50 C332 75 330 100 324 125 Z" fill="#0f9d58" />
+
+            <!-- "Plans today for a brighter tomorrow" Speech/Text card -->
+            <g transform="translate(340, 24)">
+              <rect x="0" y="0" width="112" height="84" rx="12" fill="#ffffff" fill-opacity="0.9" stroke="#e0e8f6"
+                stroke-width="1" />
+              <text x="14" y="24" font-size="12" font-weight="600" fill="#203d68"
+                font-family="Inter, sans-serif">Plans</text>
+              <text x="14" y="40" font-size="12" font-weight="600" fill="#203d68" font-family="Inter, sans-serif">today
+                for a</text>
+              <text x="14" y="56" font-size="12" font-weight="600" fill="#203d68"
+                font-family="Inter, sans-serif">brighter</text>
+              <text x="14" y="72" font-size="12" font-weight="600" fill="#203d68"
+                font-family="Inter, sans-serif">tomorrow</text>
+            </g>
+          </svg>
+        </div>
+
+        <button class="banner-close-btn" title="Dismiss"
+          onclick="document.getElementById('heroBanner').style.display='none'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="banner-arrows">
+          <button class="arrow-circle-btn" title="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="arrow-circle-btn" title="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4 Quick Actions Row -->
+      <section class="quick-actions-row">
+        <!-- 1. Scan QR -->
+        <div class="quick-action-card">
+          <div class="quick-action-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <!-- Viewfinder corners -->
+              <path d="M4 8V4h4"></path>
+              <path d="M20 8V4h-4"></path>
+              <path d="M4 16v4h4"></path>
+              <path d="M20 16v4h-4"></path>
+              <!-- Center QR pattern -->
+              <rect x="8" y="8" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.8"></rect>
+              <circle cx="12" cy="12" r="1" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <div class="quick-action-texts">
+            <span class="quick-action-title">Scan any QR code</span>
+            <span class="quick-action-sub">Pay at shops</span>
+          </div>
+        </div>
+
+        <!-- 2. Pay anyone -->
+        <div class="quick-action-card">
+          <div class="quick-action-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="quick-action-texts">
+            <span class="quick-action-title">Pay anyone</span>
+            <span class="quick-action-sub">UPI ID / Phone number</span>
+          </div>
+        </div>
+
+        <!-- 3. Bank transfer -->
+        <div class="quick-action-card">
+          <div class="quick-action-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="21" x2="21" y2="21"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <polyline points="12 2 3 7 21 7"></polyline>
+              <line x1="6" y1="10" x2="6" y2="21"></line>
+              <line x1="10" y1="10" x2="10" y2="21"></line>
+              <line x1="14" y1="10" x2="14" y2="21"></line>
+              <line x1="18" y1="10" x2="18" y2="21"></line>
+            </svg>
+          </div>
+          <div class="quick-action-texts">
+            <span class="quick-action-title">Bank transfer</span>
+            <span class="quick-action-sub">To bank account</span>
+          </div>
+        </div>
+
+        <!-- 4. Mobile recharge -->
+        <div class="quick-action-card">
+          <div class="quick-action-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+          <div class="quick-action-texts">
+            <span class="quick-action-title">Mobile recharge</span>
+            <span class="quick-action-sub">Prepaid / Postpaid</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DASHBOARD GRID (LEFT CONTENT + RIGHT PANEL) ==================== -->
+      <div class="dashboard-grid">
+
+        <!-- Left Content Column -->
+        <div class="dashboard-left-col">
+
+          <!-- SECTION 1: PEOPLE -->
+          <section class="section-card">
+            <div class="section-header">
+              <h2 class="section-title">
+                People
+                <svg class="section-title-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </h2>
+              <a href="#see-all-people" class="section-action-link">See all</a>
+            </div>
+
+            <div class="items-horizontal-row">
+              <!-- Ashish -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-purple">A</div>
+                <span class="item-label">Ashish</span>
+              </div>
+              <!-- Divyansh -->
+              <div class="item-node">
+                <div class="item-avatar-circle" style="background: #e65100;">
+                  <!-- Deity portrait avatar matching reference screenshot -->
+                  <svg viewBox="0 0 50 50" width="100%" height="100%">
+                    <rect width="50" height="50" fill="#f57f17" />
+                    <!-- Golden Sun Halo -->
+                    <circle cx="25" cy="22" r="16" fill="#ffd54f" />
+                    <circle cx="25" cy="22" r="14" fill="#ffca28" />
+                    <!-- Krishna/Bal Gopal Deity Face -->
+                    <ellipse cx="25" cy="24" rx="8.5" ry="9.5" fill="#81d4fa" />
+                    <!-- Golden Crown (Mukut) -->
+                    <path d="M17 19 L25 5 L33 19 Z" fill="#ffb300" stroke="#ff8f00" stroke-width="0.8" />
+                    <!-- Peacock Feather (Mor Pankh) -->
+                    <ellipse cx="28" cy="7" rx="3.5" ry="6" fill="#00897b" transform="rotate(25 28 7)" />
+                    <circle cx="28" cy="7" r="1.8" fill="#1e88e5" />
+                    <circle cx="28" cy="7" r="0.8" fill="#fdd835" />
+                    <!-- Tilak -->
+                    <path d="M24 18 L26 18 L25 23 Z" fill="#d32f2f" />
+                    <!-- Eyes & Smile -->
+                    <path d="M20 22 Q22 24 23 22" stroke="#263238" stroke-width="0.8" fill="none" />
+                    <path d="M27 22 Q28 24 30 22" stroke="#263238" stroke-width="0.8" fill="none" />
+                    <path d="M23 27 Q25 29 27 27" stroke="#d32f2f" stroke-width="0.8" fill="none" />
+                    <!-- Ornaments / Red clothing -->
+                    <path d="M14 42 C14 33 18 31 25 31 C32 31 36 33 36 42 Z" fill="#d84315" />
+                    <!-- Pearl necklace -->
+                    <path d="M19 33 Q25 39 31 33" stroke="#fff9c4" stroke-width="1.8" fill="none"
+                      stroke-dasharray="1.5 1" />
+                  </svg>
+                </div>
+                <span class="item-label">Divyansh</span>
+              </div>
+              <!-- VIJAY SINGH -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-crimson">V</div>
+                <span class="item-label">VIJAY SINGH</span>
+              </div>
+              <!-- DINESH -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-blue">D</div>
+                <span class="item-label">DINESH</span>
+              </div>
+              <!-- Dhansingh -->
+              <div class="item-node">
+                <div class="item-avatar-circle" style="background: #2e7d32;">
+                  <svg viewBox="0 0 50 50" width="100%" height="100%">
+                    <!-- Outdoor nature background -->
+                    <rect width="50" height="50" fill="#388e3c" />
+                    <circle cx="15" cy="15" r="12" fill="#2e7d32" />
+                    <circle cx="38" cy="20" r="10" fill="#4caf50" />
+                    <!-- Young man outdoors with green polo shirt -->
+                    <circle cx="25" cy="20" r="8" fill="#d7a15c" />
+                    <!-- Hair -->
+                    <path d="M18 19 C18 13 22 11 28 12 C32 13 33 17 31 20 Z" fill="#1f1f1f" />
+                    <!-- Smile -->
+                    <path d="M23 23 Q25 25 27 23" stroke="#5d4037" stroke-width="0.7" fill="none" />
+                    <!-- Green shirt -->
+                    <path d="M15 42 C15 32 18 29 25 29 C32 29 35 32 35 42 Z" fill="#1b5e20" />
+                    <path d="M22 29 L25 34 L28 29 Z" fill="#ffffff" />
+                  </svg>
+                </div>
+                <span class="item-label">Dhansingh</span>
+              </div>
+              <!-- Jasvinder -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-violet">J</div>
+                <span class="item-label">Jasvinder</span>
+              </div>
+              <!-- Jeetendra -->
+              <div class="item-node">
+                <div class="item-avatar-circle" style="background: #f57f17;">
+                  <svg viewBox="0 0 50 50" width="100%" height="100%">
+                    <!-- Warm background -->
+                    <rect width="50" height="50" fill="#fbc02d" />
+                    <!-- Man smiling in light polo shirt -->
+                    <circle cx="25" cy="20" r="8.5" fill="#e0a96d" />
+                    <!-- Hair -->
+                    <path d="M17 18 C17 12 23 11 30 11 C33 13 34 17 33 19 Z" fill="#212121" />
+                    <!-- Smile and eyes -->
+                    <circle cx="22" cy="19" r="0.8" fill="#212121" />
+                    <circle cx="28" cy="19" r="0.8" fill="#212121" />
+                    <path d="M22 23 Q25 26 28 23" stroke="#212121" stroke-width="0.8" fill="none" />
+                    <!-- Light cream / yellow polo -->
+                    <path d="M14 42 C14 32 17 29 25 29 C33 29 36 32 36 42 Z" fill="#fff9c4" />
+                    <path d="M22 29 L25 35 L28 29 Z" fill="#fbc02d" />
+                  </svg>
+                </div>
+                <span class="item-label">Jeetendra</span>
+              </div>
+              <!-- More -->
+              <div class="item-node">
+                <div class="item-avatar-circle more-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="5" cy="12" r="2"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <circle cx="19" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <span class="item-label">More</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 2: BILLS & RECHARGES -->
+          <section class="section-card">
+            <div class="section-header">
+              <h2 class="section-title">
+                Bills &amp; recharges
+                <svg class="section-title-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </h2>
+              <a href="#manage-bills" class="section-action-link">Manage</a>
+            </div>
+
+            <div class="items-horizontal-row">
+              <!-- Uttarakhand Power (UPCL) -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-white-border">
+                  <svg viewBox="0 0 44 44" width="36" height="36">
+                    <!-- UPCL Official Logo Design -->
+                    <circle cx="22" cy="22" r="19" fill="#ffffff" stroke="#004c8c" stroke-width="1.2" />
+                    <circle cx="22" cy="22" r="16" fill="none" stroke="#2e7d32" stroke-width="1"
+                      stroke-dasharray="2 1" />
+                    <!-- Central leaf / power emblem -->
+                    <path d="M22 9 L22 35 M11 22 L33 22" stroke="#004c8c" stroke-width="1" />
+                    <circle cx="22" cy="22" r="7" fill="#004c8c" />
+                    <path d="M22 17 C20 19 19 21 19 23 C19 25 21 27 22 27 C23 27 25 25 25 23 C25 21 24 19 22 17 Z"
+                      fill="#4caf50" />
+                    <circle cx="22" cy="23" r="1.5" fill="#ffffff" />
+                  </svg>
+                </div>
+                <span class="item-label">Uttarakhand Power (UPCL)</span>
+              </div>
+
+              <!-- Uttarakhand Jal Sansthan -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-white-border">
+                  <svg viewBox="0 0 44 44" width="36" height="36">
+                    <!-- Uttarakhand Jal Sansthan Crest -->
+                    <circle cx="22" cy="22" r="19" fill="#ffffff" stroke="#c2185b" stroke-width="1.2" />
+                    <!-- Water drop with red & yellow emblem -->
+                    <path d="M22 8 C22 8 13 18 13 25 C13 30 17 34 22 34 C27 34 31 30 31 25 C31 18 22 8 22 8 Z"
+                      fill="#0288d1" />
+                    <circle cx="22" cy="25" r="4.5" fill="#d32f2f" />
+                    <circle cx="22" cy="25" r="2" fill="#ffeb3b" />
+                  </svg>
+                </div>
+                <span class="item-label">Uttarakhand Jal Sansthan</span>
+              </div>
+
+              <!-- Jio Prepaid -->
+              <div class="item-node">
+                <div class="item-avatar-circle" style="background-color: #0a2885;">
+                  <span style="font-weight: 700; font-size: 16px; color: #ffffff; letter-spacing: -0.5px;">Jio</span>
+                </div>
+                <span class="item-label">Jio Prepaid</span>
+              </div>
+
+              <!-- Vi Prepaid -->
+              <div class="item-node">
+                <div class="item-avatar-circle" style="background-color: #e60000;">
+                  <span style="font-weight: 800; font-size: 17px; color: #ffffff; letter-spacing: -1px;">Vi</span>
+                </div>
+                <span class="item-label">Vi Prepaid</span>
+              </div>
+
+              <!-- Mobile recharge -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-cyan">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b57d0" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  </svg>
+                </div>
+                <span class="item-label">Mobile recharge</span>
+              </div>
+
+              <!-- DTH / Cable TV -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-cyan">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b57d0" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="13" rx="2"></rect>
+                    <polyline points="17 2 12 7 7 2"></polyline>
+                  </svg>
+                </div>
+                <span class="item-label">DTH / Cable TV</span>
+              </div>
+
+              <!-- Electricity -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-cyan">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#f9ab00" stroke="#e37400" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18h6"></path>
+                    <path d="M10 22h4"></path>
+                    <path
+                      d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14">
+                    </path>
+                  </svg>
+                </div>
+                <span class="item-label">Electricity</span>
+              </div>
+
+              <!-- FASTag recharge -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-cyan">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b57d0" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="8" width="20" height="9" rx="2"></rect>
+                    <circle cx="7" cy="17" r="2"></circle>
+                    <circle cx="17" cy="17" r="2"></circle>
+                    <path d="M5 8 L7 3 L17 3 L19 8"></path>
+                  </svg>
+                </div>
+                <span class="item-label">FASTag recharge</span>
+              </div>
+
+              <!-- More -->
+              <div class="item-node">
+                <div class="item-avatar-circle more-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="5" cy="12" r="2"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <circle cx="19" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <span class="item-label">More</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 3: BUSINESSES -->
+          <section class="section-card">
+            <div class="section-header">
+              <h2 class="section-title">
+                Businesses
+                <svg class="section-title-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </h2>
+              <a href="#explore-businesses" class="section-action-link">Explore</a>
+            </div>
+
+            <div class="items-horizontal-row">
+              <!-- Arvind enterprises -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-green">A</div>
+                <span class="item-label">Arvind enterprises</span>
+              </div>
+
+              <!-- VINOD PRASAD T... -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-slate">V</div>
+                <span class="item-label">VINOD PRASAD T...</span>
+              </div>
+
+              <!-- Milan sweet shop -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-steel">M</div>
+                <span class="item-label">Milan sweet shop</span>
+              </div>
+
+              <!-- Zomato -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-zomato">
+                  <span
+                    style="font-weight: 800; font-style: italic; font-size: 11px; color: #ffffff; letter-spacing: -0.3px;">zomato</span>
+                </div>
+                <span class="item-label">Zomato</span>
+              </div>
+
+              <!-- Flipkart -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-flipkart">
+                  <span style="font-weight: 900; font-style: italic; font-size: 22px; color: #2874f0;">f</span>
+                </div>
+                <span class="item-label">Flipkart</span>
+              </div>
+
+              <!-- Amazon -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-white-border">
+                  <svg viewBox="0 0 40 40" width="32" height="32">
+                    <text x="20" y="22" font-size="18" font-weight="bold" fill="#111111" text-anchor="middle"
+                      font-family="Arial, sans-serif">a</text>
+                    <path d="M12 26 Q20 32 28 26" fill="none" stroke="#ff9900" stroke-width="2"
+                      stroke-linecap="round" />
+                    <path d="M27 25 L29 27 L26 28 Z" fill="#ff9900" />
+                  </svg>
+                </div>
+                <span class="item-label">Amazon</span>
+              </div>
+
+              <!-- MakeMyTrip -->
+              <div class="item-node">
+                <div class="item-avatar-circle" style="background-color: #eb2027;">
+                  <span style="font-weight: 800; font-size: 13px; color: #ffffff;">my</span>
+                </div>
+                <span class="item-label">MakeMyTrip</span>
+              </div>
+
+              <!-- Uber -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-white-border"
+                  style="color: #000000; font-weight: 700; font-size: 20px;">
+                  U
+                </div>
+                <span class="item-label">Uber</span>
+              </div>
+
+              <!-- More -->
+              <div class="item-node">
+                <div class="item-avatar-circle more-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="5" cy="12" r="2"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <circle cx="19" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <span class="item-label">More</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 4: OFFERS & REWARDS -->
+          <section class="section-card">
+            <div class="section-header">
+              <h2 class="section-title">
+                Offers &amp; rewards
+                <svg class="section-title-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </h2>
+            </div>
+
+            <div class="items-horizontal-row">
+              <!-- Rewards -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-yellow">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="#fbbc04">
+                    <!-- Trophy -->
+                    <path
+                      d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H8v2h8v-2h-3v-3.1c1.8-.3 3.32-1.4 3.61-3.04C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
+                  </svg>
+                </div>
+                <span class="item-label">Rewards</span>
+              </div>
+
+              <!-- Offers -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-pink">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#e91e63">
+                    <!-- Tag -->
+                    <path
+                      d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" />
+                  </svg>
+                </div>
+                <span class="item-label">Offers</span>
+              </div>
+
+              <!-- Referrals -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#1a73e8">
+                    <!-- Gift box -->
+                    <path
+                      d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.65-.5-.65C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76V14h2V8.76L15.38 12 17 10.83 14.92 8H20v6z" />
+                  </svg>
+                </div>
+                <span class="item-label">Referrals</span>
+              </div>
+
+              <!-- Indi-Home -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-cyan">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#0288d1">
+                    <polygon points="12 2 2 12 5 12 5 22 19 22 19 12 22 12 12 2" />
+                  </svg>
+                </div>
+                <span class="item-label">Indi-Home</span>
+              </div>
+
+              <!-- Google Play -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-white-border">
+                  <svg viewBox="0 0 40 40" width="24" height="24">
+                    <path fill="#4285F4" d="M9 7.5L24 20L9 32.5V7.5Z" />
+                    <path fill="#34A853" d="M28.5 16.2L24 20L9 7.5L25 13.5C26.5 14.2 27.8 15.1 28.5 16.2Z" />
+                    <path fill="#EA4335" d="M28.5 23.8L24 20L9 32.5L25 26.5C26.5 25.8 27.8 24.9 28.5 23.8Z" />
+                    <path fill="#FBBC05"
+                      d="M31 20C31 21.2 30.2 22.5 28.5 23.8L24 20L28.5 16.2C30.2 17.5 31 18.8 31 20Z" />
+                  </svg>
+                </div>
+                <span class="item-label">Google Play</span>
+              </div>
+
+              <!-- Food & dining -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-orange">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#f57c00">
+                    <path
+                      d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" />
+                  </svg>
+                </div>
+                <span class="item-label">Food &amp; dining</span>
+              </div>
+
+              <!-- Shopping -->
+              <div class="item-node">
+                <div class="item-avatar-circle bg-light-pink">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#c2185b">
+                    <path
+                      d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z" />
+                  </svg>
+                </div>
+                <span class="item-label">Shopping</span>
+              </div>
+
+              <!-- More -->
+              <div class="item-node">
+                <div class="item-avatar-circle more-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="5" cy="12" r="2"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <circle cx="19" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <span class="item-label">More</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ==================== RIGHT PANEL ==================== -->
+        <div class="dashboard-right-col">
+
+          <!-- Card 1: Manage your money -->
+          <div class="manage-money-card">
+            <h3 class="section-title" style="margin-bottom: 6px;">
+              Manage your money
+              <svg class="section-title-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </h3>
+
+            <div class="money-rows-list">
+              <!-- 1. Flex by Google Pay -->
+              <div class="money-row-item">
+                <div class="money-row-left">
+                  <div class="money-row-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b57d0" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="5" width="20" height="14" rx="3" fill="#f0f6ff" />
+                      <line x1="2" y1="10" x2="22" y2="10" />
+                      <rect x="5" y="13" width="4" height="3" rx="0.5" fill="#0b57d0" />
+                    </svg>
+                  </div>
+                  <div class="money-row-texts">
+                    <div class="money-row-title">Flex by Google Pay</div>
+                    <div class="money-row-sub">UPI credit card made simple</div>
+                  </div>
+                </div>
+                <svg class="money-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+
+              <!-- 2. Personal loan -->
+              <div class="money-row-item">
+                <div class="money-row-left">
+                  <div class="money-row-icon">
+                    <!-- Blue Money Pouch -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b57d0" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 8 C7 5 17 5 17 8 L19 19 C19 20.5 17.5 22 12 22 C6.5 22 5 20.5 5 19 Z"
+                        fill="#f0f6ff" />
+                      <line x1="8" y1="8" x2="16" y2="8" stroke-width="2.5" />
+                      <path d="M12 11 v6 M10 13 h4" stroke="#0b57d0" stroke-width="1.8" />
+                    </svg>
+                  </div>
+                  <div class="money-row-texts">
+                    <div class="money-row-title">Personal loan</div>
+                    <div class="money-row-sub">Up to ₹40 lakh, instant approval</div>
+                  </div>
+                </div>
+                <svg class="money-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+
+              <!-- 3. Check your CIBIL score for free -->
+              <div class="money-row-item">
+                <div class="money-row-left">
+                  <div class="money-row-icon" style="background: #f0fdf4;">
+                    <!-- Speedometer / Rainbow Gauge -->
+                    <svg width="22" height="22" viewBox="0 0 24 24">
+                      <path d="M4 16 A 8 8 0 0 1 10 9" fill="none" stroke="#ea4335" stroke-width="2.5"
+                        stroke-linecap="round" />
+                      <path d="M10 9 A 8 8 0 0 1 14 9" fill="none" stroke="#fbbc04" stroke-width="2.5" />
+                      <path d="M14 9 A 8 8 0 0 1 20 16" fill="none" stroke="#34a853" stroke-width="2.5"
+                        stroke-linecap="round" />
+                      <circle cx="12" cy="15" r="2" fill="#1f1f1f" />
+                      <line x1="12" y1="15" x2="16.5" y2="10.5" stroke="#1f1f1f" stroke-width="1.8"
+                        stroke-linecap="round" />
+                    </svg>
+                  </div>
+                  <div class="money-row-texts">
+                    <div class="money-row-title-container">
+                      <span class="money-row-title">Check your CIBIL score for free</span>
+                      <span class="new-badge">New</span>
+                    </div>
+                  </div>
+                </div>
+                <svg class="money-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+
+              <!-- 4. See transaction history -->
+              <div class="money-row-item">
+                <div class="money-row-left">
+                  <div class="money-row-icon">
+                    <!-- History Clock Rewind -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b57d0" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                      <polyline points="3 3 3 8 8 8" />
+                      <polyline points="12 7 12 12 15 15" />
+                    </svg>
+                  </div>
+                  <div class="money-row-texts">
+                    <div class="money-row-title">See transaction history</div>
+                  </div>
+                </div>
+                <svg class="money-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+
+              <!-- 5. Check bank balance -->
+              <div class="money-row-item">
+                <div class="money-row-left">
+                  <div class="money-row-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b57d0" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="3" y1="21" x2="21" y2="21"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                      <polyline points="12 2 3 7 21 7"></polyline>
+                      <line x1="6" y1="10" x2="6" y2="21"></line>
+                      <line x1="10" y1="10" x2="10" y2="21"></line>
+                      <line x1="14" y1="10" x2="14" y2="21"></line>
+                      <line x1="18" y1="10" x2="18" y2="21"></line>
+                    </svg>
+                  </div>
+                  <div class="money-row-texts">
+                    <div class="money-row-title">Check bank balance</div>
+                  </div>
+                </div>
+                <svg class="money-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: CIBIL Promotion -->
+          <div class="cibil-card">
+            <div class="cibil-info">
+              <div class="cibil-title">
+                Your new <strong>CIBIL score</strong><br>is just a tap away
+              </div>
+              <a href="#cibil" class="cibil-link">
+                Check now
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="cibil-graphic">
+              <!-- High-Fidelity CIBIL Speedometer SVG illustration -->
+              <svg viewBox="0 0 135 95" width="100%" height="100%" fill="none">
+                <!-- Speedometer Arc -->
+                <path d="M30 65 A 38 38 0 0 1 48 37" stroke="#ea4335" stroke-width="8" stroke-linecap="round" />
+                <path d="M51 34 A 38 38 0 0 1 68 30" stroke="#fb8c00" stroke-width="8" />
+                <path d="M72 30 A 38 38 0 0 1 89 34" stroke="#fdd835" stroke-width="8" />
+                <path d="M92 37 A 38 38 0 0 1 110 65" stroke="#34a853" stroke-width="8" stroke-linecap="round" />
+
+                <!-- Blue droplet at apex -->
+                <g transform="translate(65, 14)">
+                  <path d="M5 0 C5 0 0 6 0 9.5 C0 12.5 2.2 15 5 15 C7.8 15 10 12.5 10 9.5 C10 6 5 0 5 0 Z"
+                    fill="#1a73e8" />
+                  <path d="M3 9 L4.5 10.5 L7.5 7.5" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </g>
+
+                <!-- Lush leaves flanking bottom right -->
+                <path d="M95 90 C88 70 98 56 112 48 C104 68 106 80 114 90 Z" fill="#0f9d58" />
+                <path d="M106 90 C114 74 126 62 134 56 C126 76 122 84 118 90 Z" fill="#34a853" />
+
+                <!-- Person smiling checking phone -->
+                <g transform="translate(52, 48)">
+                  <!-- Head -->
+                  <circle cx="18" cy="14" r="8" fill="#fbc02d" />
+                  <!-- Hair -->
+                  <path d="M11 12 C11 5 18 3 25 8 C25 14 22 15 17 15 Z" fill="#202124" />
+                  <!-- Blue shirt torso -->
+                  <path d="M9 25 C9 21 13 19 18 19 C23 19 27 21 27 25 L27 45 L9 45 Z" fill="#1a73e8" />
+                  <!-- Phone in hands -->
+                  <rect x="5" y="24" width="8" height="15" rx="2" fill="#4285f4" stroke="#ffffff" stroke-width="1" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 3: Get more with Google Pay -->
+          <div class="rewards-promo-card">
+            <div class="rewards-promo-info">
+              <div class="rewards-promo-title">Get more with Google Pay</div>
+              <div class="rewards-promo-sub">Shop, pay bills, recharge and more</div>
+              <a href="#offers" class="view-offers-btn">
+                View offers
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="rewards-promo-graphic">
+              <!-- 3D Gift box and gold coin illustration matching reference -->
+              <svg viewBox="0 0 115 95" width="100%" height="100%" fill="none">
+                <!-- Gold coin on left -->
+                <circle cx="22" cy="54" r="11" fill="#fbbc04" stroke="#f9ab00" stroke-width="1.8" />
+                <circle cx="22" cy="54" r="8.5" fill="#f9ab00" />
+                <text x="22" y="58.5" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"
+                  font-family="Inter, sans-serif">₹</text>
+
+                <!-- Gold coin at top right -->
+                <circle cx="94" cy="22" r="4.5" fill="#fbbc04" stroke="#f9ab00" stroke-width="1" />
+                <!-- Sparkle stars -->
+                <polygon points="98,38 100,42 105,42 101,45 103,50 98,47 94,50 95,45 92,42 96,42" fill="#fbbc04" />
+                <circle cx="16" cy="26" r="2.5" fill="#4285f4" />
+
+                <!-- Gift Box in 3D blue perspective -->
+                <g transform="translate(42, 30)">
+                  <!-- Shadow -->
+                  <ellipse cx="27" cy="56" rx="26" ry="6" fill="rgba(0,0,0,0.06)" />
+                  <!-- Box bottom -->
+                  <rect x="4" y="14" width="46" height="38" rx="5" fill="#1a73e8" />
+                  <rect x="23" y="14" width="8" height="38" fill="#4285f4" />
+                  <!-- Box Lid -->
+                  <rect x="0" y="7" width="54" height="11" rx="3.5" fill="#185abc" />
+                  <rect x="23" y="7" width="8" height="11" fill="#8ab4f8" />
+                  <!-- Bow Ribbons -->
+                  <path d="M23 7 C16 -3 8 0 16 7 Z" fill="#8ab4f8" />
+                  <path d="M31 7 C38 -3 46 0 38 7 Z" fill="#8ab4f8" />
+                  <circle cx="27" cy="7" r="3.5" fill="#d2e3fc" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
